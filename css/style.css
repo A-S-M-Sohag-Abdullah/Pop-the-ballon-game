@@ -1,0 +1,328 @@
+body {
+  margin: 0;
+  padding: 0;
+  cursor: grab;
+  overflow: hidden; }
+
+img {
+  pointer-events: none; }
+
+@keyframes rotat {
+  from {
+    transform: rotate(0deg); }
+  to {
+    transform: rotate(360deg); } }
+@keyframes pendulam {
+  from {
+    transform: rotate(0deg); }
+  to {
+    transform: rotate(50deg); } }
+@keyframes goDown {
+  from {
+    top: -20%; }
+  to {
+    top: 75%; } }
+#gamedisplaywrapper {
+  user-select: none;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  font-family: 'Comic Sans MS';
+  position: relative; }
+  #gamedisplaywrapper #background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -9; }
+    #gamedisplaywrapper #background span.hat {
+      user-select: none;
+      position: absolute;
+      z-index: -99;
+      animation: pendulam 1.5s infinite;
+      animation-timing-function: linear;
+      transform-origin: top top;
+      animation-direction: alternate; }
+      #gamedisplaywrapper #background span.hat:nth-child(11) {
+        top: 280px;
+        left: 6%; }
+      #gamedisplaywrapper #background span.hat:nth-child(12) {
+        top: 280px;
+        right: 6%; }
+    #gamedisplaywrapper #background span {
+      user-select: none;
+      position: absolute;
+      z-index: -99;
+      animation: rotat 3.5s infinite;
+      animation-timing-function: linear;
+      transition: all 1.5s ease-in-out; }
+      #gamedisplaywrapper #background span:nth-child(1) {
+        top: 100px;
+        left: 10%; }
+      #gamedisplaywrapper #background span:nth-child(2) {
+        top: 250px;
+        left: 18%; }
+      #gamedisplaywrapper #background span:nth-child(3) {
+        top: 430px;
+        left: 10%; }
+      #gamedisplaywrapper #background span:nth-child(4) {
+        top: 35px;
+        left: 32%; }
+      #gamedisplaywrapper #background span:nth-child(5) {
+        top: 35px;
+        left: 58%; }
+      #gamedisplaywrapper #background span:nth-child(6) {
+        top: 115px;
+        left: 85%; }
+      #gamedisplaywrapper #background span:nth-child(7) {
+        top: 250px;
+        left: 75%; }
+      #gamedisplaywrapper #background span:nth-child(8) {
+        top: 400px;
+        left: 85%; }
+      #gamedisplaywrapper #background span:nth-child(9) {
+        top: 80%;
+        left: 60%; }
+      #gamedisplaywrapper #background span:nth-child(10) {
+        top: 80%;
+        left: 30%; }
+  #gamedisplaywrapper #userbox {
+    transition: all 2.5s;
+    position: absolute;
+    top: 0;
+    left: 0; }
+    #gamedisplaywrapper #userbox button {
+      padding: 10px 20px;
+      background: none;
+      outline: 0;
+      border: 0;
+      cursor: pointer;
+      font-family: 'Comic Sans MS';
+      font-size: 30px;
+      font-weight: bolder;
+      color: #E25D5D;
+      text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000; }
+  #gamedisplaywrapper #options {
+    transition: all 2.5s;
+    position: absolute;
+    top: 0;
+    right: 20px; }
+    #gamedisplaywrapper #options button {
+      padding: 20px 15px;
+      background: none;
+      outline: 0;
+      border: 0;
+      cursor: pointer; }
+      #gamedisplaywrapper #options button img {
+        height: 50px;
+        max-width: 100%; }
+    #gamedisplaywrapper #options .showSettings {
+      width: 145px !important;
+      height: 61px !important;
+      border: 4px groove #581066 !important;
+      transform-origin: right top; }
+    #gamedisplaywrapper #options #settings {
+      transition: all .25s ease-in-out;
+      position: absolute;
+      overflow: hidden;
+      top: 80%;
+      left: -85px;
+      width: 145px;
+      height: 0;
+      background-color: rgba(71, 61, 139, 0.658);
+      border-radius: 8px;
+      border: 0px groove #581066; }
+      #gamedisplaywrapper #options #settings ol {
+        padding: 0 9px 0 26px; }
+        #gamedisplaywrapper #options #settings ol li {
+          color: #fff;
+          font-weight: lighter; }
+          #gamedisplaywrapper #options #settings ol li input[type="checkbox"] {
+            float: right;
+            background: rgba(0, 0, 0, 0.466);
+            appearance: none;
+            width: 35px;
+            height: 20px;
+            border-radius: 20px;
+            border: 1px solid white;
+            position: relative;
+            transition: 0.5s;
+            cursor: pointer; }
+            #gamedisplaywrapper #options #settings ol li input[type="checkbox"]::after {
+              content: "";
+              width: 10px;
+              height: 10px;
+              position: absolute;
+              top: 4px;
+              left: 4px;
+              background-color: white;
+              border-radius: 50%;
+              transform: scale(1.6);
+              transition: 0.5s; }
+            #gamedisplaywrapper #options #settings ol li input[type="checkbox"]:checked {
+              background-color: #4cd137; }
+              #gamedisplaywrapper #options #settings ol li input[type="checkbox"]:checked::after {
+                left: 18px; }
+  #gamedisplaywrapper #playingbutton {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 480px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; }
+    #gamedisplaywrapper #playingbutton .p1,
+    #gamedisplaywrapper #playingbutton .p2,
+    #gamedisplaywrapper #playingbutton .playbtn {
+      display: inline-block;
+      user-select: none; }
+    #gamedisplaywrapper #playingbutton .playbtn {
+      cursor: pointer !important; }
+    #gamedisplaywrapper #playingbutton .p2 {
+      transform: translateX(10px); }
+    #gamedisplaywrapper #playingbutton img {
+      width: 150px; }
+    #gamedisplaywrapper #playingbutton #p1,
+    #gamedisplaywrapper #playingbutton #p2 {
+      transition: all 0.45s ease-in-out; }
+  #gamedisplaywrapper #kata {
+    transition: all 2s;
+    position: absolute;
+    bottom: -50px;
+    left: 0;
+    width: 100%; }
+    #gamedisplaywrapper #kata img {
+      width: 100%;
+      height: 100%; }
+  #gamedisplaywrapper .packedBallon {
+    position: absolute;
+    pointer-events: none;
+    /* animation-name: gotoBusket !important;
+    animation-iteration-count: 1 !important;
+    animation-fill-mode: forwards !important;
+    animation-timing-function: linear !important; */ }
+  #gamedisplaywrapper .ballons {
+    position: absolute;
+    z-index: 100;
+    cursor: pointer;
+    display: inline-block;
+    overflow-y: visible;
+    height: 130px;
+    border-radius: 51% 49% 49% 51% / 29% 24% 76% 71%;
+    animation-name: goDown;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear;
+    transition: all 0.5s !important;
+    top: 0%; }
+    #gamedisplaywrapper .ballons img {
+      user-select: none;
+      pointer-events: none;
+      transition: all 2.5s; }
+  #gamedisplaywrapper .animatedBallon {
+    top: 90%; }
+  #gamedisplaywrapper .score {
+    font-size: 40px;
+    z-index: 99;
+    right: -170px;
+    top: 35px;
+    position: absolute;
+    display: inline-block;
+    color: #E25D5D;
+    text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
+    transition: all 2s; }
+  #gamedisplaywrapper #meter {
+    width: 98%;
+    height: 30px;
+    border: 2px solid black;
+    border-radius: 50rem;
+    position: absolute;
+    top: 2px;
+    left: 50%;
+    left: -100%;
+    transform: translateX(-50%);
+    background-color: rgba(71, 61, 139, 0.858);
+    z-index: 500;
+    transition: all 2s; }
+    #gamedisplaywrapper #meter #meterfiller {
+      position: absolute;
+      height: 100%;
+      background-color: #E25D5D;
+      top: 0;
+      left: 0;
+      width: 50%;
+      width: 0%;
+      border-radius: 50rem;
+      transition: all 0.25s; }
+  #gamedisplaywrapper #basket {
+    position: absolute;
+    right: 40px;
+    right: -100%;
+    bottom: -6px;
+    z-index: 500;
+    cursor: pointer;
+    transition: all 2s; }
+    #gamedisplaywrapper #basket img {
+      width: 150px; }
+    #gamedisplaywrapper #basket #basketfillmeter {
+      width: 100%;
+      height: 10px;
+      border: 4px solid black;
+      border-radius: 50rem;
+      position: absolute;
+      top: -20px;
+      left: -4px;
+      display: block; }
+      #gamedisplaywrapper #basket #basketfillmeter #filler {
+        position: absolute;
+        left: 0;
+        height: 100%;
+        width: 0%;
+        background-color: #4cd137;
+        top: 0;
+        border-radius: 50rem;
+        transition: all .5s; }
+  #gamedisplaywrapper #gameOver {
+    display: none;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    background-color: rgba(0, 0, 0, 0.658);
+    position: absolute;
+    top: 0;
+    left: 0; }
+    #gamedisplaywrapper #gameOver #scrorescreen {
+      width: 400px;
+      height: 400px;
+      text-align: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(71, 61, 139, 0.658);
+      border-radius: 8px;
+      border: 15px groove white;
+      font-size: 80px;
+      color: #E25D5D; }
+      #gamedisplaywrapper #gameOver #scrorescreen #score {
+        color: white; }
+      #gamedisplaywrapper #gameOver #scrorescreen #playAgain {
+        position: absolute;
+        width: 300px;
+        height: 80px;
+        display: inline-block;
+        color: white;
+        text-decoration: none;
+        top: 90%;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 50px;
+        z-index: 1000;
+        background-color: #E25D5D;
+        border-radius: 10% 10% 10% 10% / 43% 48% 55% 55%;
+        border: 5px solid black; }
+
+#gear {
+  transition: all 0.45s ease-in; }
+
+/*# sourceMappingURL=style.css.map */

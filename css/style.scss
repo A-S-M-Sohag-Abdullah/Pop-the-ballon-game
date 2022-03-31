@@ -1,0 +1,398 @@
+body {
+    margin: 0;
+    padding: 0;
+    cursor: grab;
+    overflow: hidden;
+}
+
+img {
+    pointer-events: none;
+}
+
+@keyframes rotat {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes pendulam {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(50deg);
+    }
+}
+
+@keyframes goDown {
+    from {
+        top: -20%;
+    }
+    to {
+        top: 75%;
+    }
+}
+
+#gamedisplaywrapper {
+    user-select: none;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    font-family: 'Comic Sans MS';
+    position: relative;
+    #background {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: -9;
+        //background-color: rgba(0, 255, 255, 0.411);
+        span.hat {
+            user-select: none;
+            //transition: all 0.3s;
+            position: absolute;
+            z-index: -99;
+            animation: pendulam 1.5s infinite;
+            animation-timing-function: linear;
+            transform-origin: top top;
+            animation-direction: alternate;
+            &:nth-child(11) {
+                top: 280px;
+                left: 6%;
+            }
+            &:nth-child(12) {
+                top: 280px;
+                right: 6%;
+            }
+        }
+        span {
+            user-select: none;
+            //transition: all 0.3s;
+            position: absolute;
+            z-index: -99;
+            animation: rotat 3.5s infinite;
+            animation-timing-function: linear;
+            transition: all 1.5s ease-in-out;
+            &:nth-child(1) {
+                top: 100px;
+                left: 10%;
+            }
+            &:nth-child(2) {
+                top: 250px;
+                left: 18%;
+            }
+            &:nth-child(3) {
+                top: 430px;
+                left: 10%;
+            }
+            &:nth-child(4) {
+                top: 35px;
+                left: 32%;
+            }
+            &:nth-child(5) {
+                top: 35px;
+                left: 58%;
+            }
+            &:nth-child(6) {
+                top: 115px;
+                left: 85%;
+            }
+            &:nth-child(7) {
+                top: 250px;
+                left: 75%;
+            }
+            &:nth-child(8) {
+                top: 400px;
+                left: 85%;
+            }
+            &:nth-child(9) {
+                top: 80%;
+                left: 60%;
+            }
+            &:nth-child(10) {
+                top: 80%;
+                left: 30%;
+            }
+        }
+    }
+    #userbox {
+        transition: all 2.5s;
+        position: absolute;
+        top: 0;
+        left: 0;
+        button {
+            padding: 10px 20px;
+            background: none;
+            outline: 0;
+            border: 0;
+            cursor: pointer;
+            font-family: 'Comic Sans MS';
+            font-size: 30px;
+            font-weight: bolder;
+            color: #E25D5D;
+            text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
+        }
+    }
+    #options {
+        transition: all 2.5s;
+        position: absolute;
+        top: 0;
+        right: 20px;
+        button {
+            padding: 20px 15px;
+            background: none;
+            outline: 0;
+            border: 0;
+            cursor: pointer;
+            img {
+                height: 50px;
+                max-width: 100%;
+            }
+        }
+        .showSettings {
+            width: 145px !important;
+            height: 61px !important;
+            border: 4px groove rgb(88, 16, 102) !important;
+            transform-origin: right top;
+        }
+        #settings {
+            transition: all .25s ease-in-out;
+            position: absolute;
+            overflow: hidden;
+            top: 80%;
+            left: -85px;
+            width: 145px;
+            height: 0;
+            background-color: rgba(71, 61, 139, 0.658);
+            border-radius: 8px;
+            border: 0px groove rgb(88, 16, 102);
+            ol {
+                padding: 0 9px 0 26px;
+                li {
+                    color: #fff;
+                    font-weight: lighter;
+                    input[type="checkbox"] {
+                        float: right;
+                        background: rgba(0, 0, 0, 0.466);
+                        appearance: none;
+                        width: 35px;
+                        height: 20px;
+                        border-radius: 20px;
+                        border: 1px solid white;
+                        position: relative;
+                        transition: 0.5s;
+                        cursor: pointer;
+                        &::after {
+                            content: "";
+                            width: 10px;
+                            height: 10px;
+                            position: absolute;
+                            top: 4px;
+                            left: 4px;
+                            background-color: white;
+                            border-radius: 50%;
+                            transform: scale(1.6);
+                            transition: 0.5s;
+                        }
+                        &:checked {
+                            background-color: #4cd137;
+                            &::after {
+                                left: 18px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    #playingbutton {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 480px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        .p1,
+        .p2,
+        .playbtn {
+            display: inline-block;
+            user-select: none;
+        }
+        .playbtn {
+            cursor: pointer !important;
+        }
+        .p2 {
+            transform: translateX(10px);
+        }
+        img {
+            width: 150px;
+        }
+        #p1,
+        #p2 {
+            transition: all 0.45s ease-in-out;
+        }
+    }
+    #kata {
+        transition: all 2s;
+        position: absolute;
+        bottom: -50px;
+        // bottom: -10px;
+        left: 0;
+        width: 100%;
+        img {
+            width: 100%;
+            height: 100%;
+            //pointer-events: none;
+        }
+    }
+    .packedBallon {
+        position: absolute;
+        pointer-events: none;
+        /* animation-name: gotoBusket !important;
+        animation-iteration-count: 1 !important;
+        animation-fill-mode: forwards !important;
+        animation-timing-function: linear !important; */
+    }
+    .ballons {
+        position: absolute;
+        z-index: 100;
+        cursor: pointer;
+        display: inline-block;
+        overflow-y: visible;
+        height: 130px;
+        border-radius: 51% 49% 49% 51% / 29% 24% 76% 71%;
+        animation-name: goDown;
+        animation-iteration-count: 1;
+        animation-fill-mode: forwards;
+        animation-timing-function: linear;
+        transition: all 0.5s !important;
+        top: 0%;
+        img {
+            user-select: none;
+            pointer-events: none;
+            transition: all 2.5s;
+        }
+    }
+    .animatedBallon {
+        top: 90%;
+    }
+    .score {
+        font-size: 40px;
+        z-index: 99;
+        right: -170px;
+        top: 35px;
+        position: absolute;
+        display: inline-block;
+        color: #E25D5D;
+        text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
+        transition: all 2s;
+    }
+    #meter {
+        width: 98%;
+        height: 30px;
+        border: 2px solid black;
+        border-radius: 50rem;
+        position: absolute;
+        top: 2px;
+        left: 50%;
+        left: -100%;
+        transform: translateX(-50%);
+        background-color: rgba(71, 61, 139, 0.858);
+        z-index: 500;
+        transition: all 2s;
+        #meterfiller {
+            position: absolute;
+            height: 100%;
+            background-color: #E25D5D;
+            top: 0;
+            left: 0;
+            width: 50%;
+            width: 0%;
+            border-radius: 50rem;
+            transition: all 0.25s;
+        }
+    }
+    #basket {
+        position: absolute;
+        right: 40px;
+        right: -100%;
+        bottom: -6px;
+        z-index: 500;
+        cursor: pointer;
+        transition: all 2s;
+        img {
+            width: 150px;
+        }
+        #basketfillmeter {
+            width: 100%;
+            height: 10px;
+            border: 4px solid black;
+            border-radius: 50rem;
+            position: absolute;
+            top: -20px;
+            left: -4px;
+            display: block;
+            #filler {
+                position: absolute;
+                left: 0;
+                height: 100%;
+                width: 0%;
+                background-color: #4cd137;
+                top: 0;
+                border-radius: 50rem;
+                transition: all .5s;
+            }
+        }
+    }
+    #gameOver {
+        display: none;
+        width: 100%;
+        height: 100%;
+        z-index: 999;
+        background-color: rgba(0, 0, 0, 0.658);
+        position: absolute;
+        top: 0;
+        left: 0;
+        #scrorescreen {
+            width: 400px;
+            height: 400px;
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(71, 61, 139, 0.658);
+            border-radius: 8px;
+            border: 15px groove white;
+            font-size: 80px;
+            color: #E25D5D;
+            #score {
+                color: white;
+            }
+            #playAgain {
+                position: absolute;
+                width: 300px;
+                height: 80px;
+                display: inline-block;
+                color: white;
+                text-decoration: none;
+                top: 90%;
+                left: 50%;
+                transform: translateX(-50%);
+                font-size: 50px;
+                z-index: 1000;
+                background-color: #E25D5D;
+                border-radius: 10% 10% 10% 10% / 43% 48% 55% 55%;
+                border: 5px solid black;
+            }
+        }
+    }
+}
+
+#gear {
+    transition: all 0.45s ease-in;
+}

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content=" user-scalable=no">
+
+    <title>PoP - The Ballon</title>
+
+    <!-- tab logo -->
+    <link rel="shortcut icon" href="./Images/tabLogo.png" type="image/x-icon">
+
+    <link rel="stylesheet" href="./fonts/stylesheet.css">
+
+    <!-- custom css -->
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+
+    <audio id="gamebgmusic" loop="loop">
+        <source src="./Audio/bgmusic1.mp3" type="audio/mpeg"> 
+    </audio>
+    <audio id="ballonBrust">
+        <source src="./Audio/ballongenerate.wav"> 
+    </audio>
+    <div id="gamedisplaywrapper">
+
+        <!-- background -->
+        <div id="background">
+            <span>
+                <img src="./Images/yellowStar.png" alt="" style="max-width: 100%;">
+            </span>
+            <span>
+                <img src="./Images/yellowStar.png" alt="" style="max-width: 100%;">
+            </span>
+            <span>
+                <img src="./Images/yellowStar.png" alt="" style="max-width: 100%;">
+            </span>
+            <span>
+                <img src="./Images/yellowStar.png" alt="" style="max-width: 100%;">
+            </span>
+            <span>
+                <img src="./Images/yellowStar.png" alt="" style="max-width: 100%;">
+            </span>
+            <span>
+                <img src="./Images/yellowStar.png" alt="" style="max-width: 100%;">
+            </span>
+            <span>
+                <img src="./Images/yellowStar.png" alt="" style="max-width: 100%;">
+            </span>
+            <span>
+                <img src="./Images/yellowStar.png" alt="" style="max-width: 100%;">
+            </span>
+            <span>
+                <img src="./Images/yellowStar.png" alt="" style="max-width: 100%;">
+            </span>
+            <span>
+                <img src="./Images/yellowStar.png" alt="" style="max-width: 100%;">
+            </span>
+            <span class="hat">
+                <img src="./Images/partyhat.png" alt="" style="max-width: 80px;">
+            </span>
+            <span class="hat">
+                <img src="./Images/partyhat.png" alt="" style="max-width: 80px;">
+            </span>
+        </div>
+
+
+
+        <!-- Login or Sign up -->
+        <div id="userbox">
+            <button class="login">Log In</button>
+            <button class="signup">Sign Up</button>
+        </div>
+
+        <!-- Options -->
+
+        <div id="options">
+
+            <!-- Settings button -->
+
+            <button class="settings" onclick="document.getElementById('settings').classList.toggle('showSettings'); playgearsound();">
+                <img src="./Images/settings.png" alt="Settings" id="gear">
+                <audio id="gearSound">
+                    <source src="./Audio/gear.mp3" type="audio/mpeg"> 
+                </audio>
+            </button>
+            <!-- all settings -->
+            <div id="settings">
+                <ol>
+                    <li>Sound <input type="checkbox" checked onchange="soundToggle(this)"></li>
+                </ol>
+            </div>
+
+            <!-- about button -->
+            <button class="about">
+                <img src="./Images/about.png" alt="About">
+            </button>
+        </div>
+
+
+        <!-- Play Start Console -->
+        <div id="playingbutton">
+            <div class="p1" id="p1">
+                <img src="./Images/bigP.png" alt="">
+            </div>
+
+            <!-- Play button -->
+            <div class="playbtn" id="playbtn">
+                <div onclick="playStart()">
+                    <img src="./Images/playbtn.png" alt="">
+                </div>
+                <audio id="audio">
+                    <source src="./Audio/pop1.mp3" type="audio/mpeg">
+                </audio>
+            </div>
+            <div class="p2" id="p2">
+                <img src="./Images/bigP.png" alt="">
+            </div>
+        </div>
+
+        <!-- Kata -->
+        <div id="kata">
+            <img src="./Images/kata.png" alt="">
+        </div>
+
+        <!-- Toxic meter -->
+        <div id="meter">
+            <div id="meterfiller"></div>
+        </div>
+
+
+        <!-- Score Meter -->
+        <div class="score">Score <span class="counter">0</span></div>
+
+
+        <!-- Ballon Basket -->
+        <div id="basket">
+            <div id="basketfillmeter">
+                <div id="filler"></div>
+            </div>
+            <img src="./Images/Basket.png" alt="">
+        </div>
+
+        <!-- Game Over Console -->
+        <div id="gameOver">
+            <div id="scrorescreen">
+                Your Score: <br>
+                <span id="score">0</span>
+
+                <a href="" id="playAgain">Play Again</a>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- <script src="./js/script.js" id="jscode"></script> -->
+    <script src="./js/newscript.js"></script>
+</body>
+
+</html>
